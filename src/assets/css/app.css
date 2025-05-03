@@ -1,0 +1,140 @@
+/* app.css */
+
+/* Dark placeholder for video elements */
+video {
+    background-color: var(--surface-dark) !important;
+  }
+  
+  :root {
+    --bg-dark: #1f1f1f;
+    --surface-dark: #2b2b2b;
+    --chat-bg: #252525;
+    --text-light: #ffffff;
+    --text-muted: #bbbbbb;
+    --accent: #43d9ad;
+  }
+  
+  body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+    margin-top: 56px;
+  }
+  
+  .navbar {
+    background-color: var(--surface-dark) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    padding-left: 1rem;
+  }
+  
+  /* Always-dark text */
+  h2, h4, label, .form-text,
+  .navbar-brand, .btn-outline-light,
+  #chat-pane h2 {
+    color: var(--text-light) !important;
+  }
+  
+  /* Video grid */
+  #videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Dark card wrappers */
+  #videos .card {
+    display: inline-block;
+    width: auto !important;
+    background: var(--surface-dark) !important;
+    border: none !important;
+    padding: 0;
+  }
+  
+  .remote-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover !important;
+  }
+  
+  .local-video {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+    height: 120px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    z-index: 1000;
+  }
+  
+  /* Chat panel */
+  .chat-col {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    bottom: 0;
+    width: 360px;
+    background-color: var(--chat-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .msg {
+    background: var(--surface-dark) !important;
+    color: var(--text-light) !important;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .chat-box {
+    width: 100%;
+    min-height: 160px;
+    resize: vertical;
+    border: 1px solid #3b3f46;
+    background: var(--surface-dark);
+    color: var(--text-light);
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .chat-box::placeholder {
+    color: var(--text-muted);
+  }
+  
+  input.form-control,
+  textarea.form-control {
+    background: var(--surface-dark);
+    border: 1px solid var(--surface-dark);
+    color: var(--text-light);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .remote-video {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+    .chat-col {
+      top: 47px;
+      width: 100vw;
+      right: -100vw;
+      transition: right 0.3s;
+    }
+    .chat-col.chat-opened {
+      right: 0;
+    }
+  }
